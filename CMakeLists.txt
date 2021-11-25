@@ -1,2 +1,2 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
-project(SFEM CXX C)
+project(sfem CXX C)
