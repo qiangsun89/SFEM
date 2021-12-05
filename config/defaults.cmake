@@ -42,6 +42,43 @@ option(SFEM_USE_MKL_CPARDISO "Enable MKL CPardiso" OFF)
 option(SFEM_USE_BENCHMARK "Enable Google Benchmark" OFF)
 option(SFEM_USE_PARELAG "Enable ParELAG" OFF)
 
+######################## Options ######################################
+#######################################################################
+option (USE_OOFEG "Enable OOFEG" OFF)
+option (USE_SHARED_LIB "Build shared library" ON)
+option (USE_MFRONT "Build shared library" OFF)
+
+# Parallel stuff
+option (USE_PARALLEL "Enable parallel support" OFF)
+option (USE_METIS "Enable metis support" OFF)
+option (USE_PARMETIS "Enable Parmetis support" OFF)
+option (USE_OPENMP "Compile with OpenMP support (for parallel assembly)" OFF)
+# Solvers and such
+option (USE_DSS "Enable DSS module" OFF) # No reason to use this
+option (USE_IML "Enable iml++ solvers" OFF) # or this
+option (USE_SPOOLES "Enable SPOOLES-solver" OFF) # or this
+option (USE_INTEL_MKLPARDISO "Enable MKLPARDISO solver support" OFF)
+option (USE_PARDISO_ORG "Enable PARDISO-project.org solver support" OFF)
+option (USE_PETSC "Enable PETSc support (specify PETSC_DIR and/or PETSC_ARCH if needed)" OFF)
+option (USE_SLEPC "Enable SLEPc support" OFF)
+option (USE_LAPACK "Use LAPACK" OFF)
+option (USE_SUPERLU_MT "Use SUPERLU_MT" OFF)
+# Other external libraries
+option (USE_TRIANGLE "Compile with Triangle bindings" OFF)
+option (USE_VTK "Enable VTK (for exporting binary VTU-files)" OFF)
+#option (USE_CGAL "CGAL" OFF)
+# Internal modules
+option (USE_SM "Enable structural mechanics module" ON)
+option (USE_FM "Enable fluid mechanics module" ON)
+option (USE_PFEM "Enable PFEM module" OFF)
+option (USE_TM "Enable heat/mass transfer module" ON)
+option (USE_CEMHYD "Enable CemHyd support" OFF)
+option (USE_T3D "Enable T3D support" OFF)
+option (USE_BOOSTPYTHON_BINDINGS "Rather obsolete, use USE_PYBIND_BINDINGS. Enable Python bidings using boost (OOFEM callable from Python)." OFF)
+option (USE_PYBIND_BINDINGS "Enable Python Pybind11 bindings (OOFEM callable from Python and vice versa)." OFF)
+option (USE_PYTHON_EXTENSION "Enable Python extension for exposing C++ code to python. Uses Python.h library." OFF)
+option (USE_HDF5 "HDF5 support" OFF)
+
 # Optional overrides for autodetected MPIEXEC and MPIEXEC_NUMPROC_FLAG
 # set(SFEM_MPIEXEC "mpirun" CACHE STRING "Command for running MPI tests")
 # set(SFEM_MPIEXEC_NP "-np" CACHE STRING

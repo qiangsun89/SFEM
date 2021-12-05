@@ -1,2 +1,0 @@
-/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/edit_cache.dir
