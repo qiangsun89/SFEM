@@ -78,6 +78,9 @@ option (USE_BOOSTPYTHON_BINDINGS "Rather obsolete, use USE_PYBIND_BINDINGS. Enab
 option (USE_PYBIND_BINDINGS "Enable Python Pybind11 bindings (OOFEM callable from Python and vice versa)." OFF)
 option (USE_PYTHON_EXTENSION "Enable Python extension for exposing C++ code to python. Uses Python.h library." OFF)
 option (USE_HDF5 "HDF5 support" OFF)
+# use sfem math library
+option (USE_sfemMath "Enable sfemMath usage" ON)
+#option (USE_sfemMath "Enable sfemMath usage" OFF)
 
 # Optional overrides for autodetected MPIEXEC and MPIEXEC_NUMPROC_FLAG
 # set(SFEM_MPIEXEC "mpirun" CACHE STRING "Command for running MPI tests")

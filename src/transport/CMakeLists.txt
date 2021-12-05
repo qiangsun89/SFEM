@@ -1,8 +1,9 @@
-set (tm_temp
-        temp.cpp
+file(GLOB transportSource ${sfem_SOURCE_DIR}/src/transport/*.cpp)
+set (tm_module
+        ${transportSource}
         )
 set (tm
-        ${tm_temp}
+        ${tm_module}
         )
 add_library (tm
         ${LIB_TYPE}

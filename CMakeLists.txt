@@ -126,6 +126,7 @@ include_directories ("${sfem_SOURCE_DIR}/include")
 
 # Is there really any reason not to compile all of them? Some has cross dependencies.
 list (APPEND LIBS $<TARGET_OBJECTS:core>)
+
 if (USE_FM)
     include_directories ("${sfem_SOURCE_DIR}/include/fluid")
     add_definitions (-D__FM_MODULE)
@@ -158,6 +159,14 @@ if (USE_SM)
         list (APPEND EXT_LIBS ${DL_LIB})
     endif ()
 endif ()
+
+if(USE_sfemMath)
+    include_directories ("${sfem_SOURCE_DIR}/include/sfemMath/sfemBlas")
+    add_definitions (-D__SFEM_MATH_MODULE)
+    list (APPEND LIBS $<TARGET_OBJECTS:smath>)
+    list (APPEND MODULE_LIST "smath")
+
+endif()
 
 if (USE_OPENMP)
     include (FindOpenMP)
@@ -548,6 +557,9 @@ endif ()
 if (USE_FM)
     add_subdirectory ("${sfem_SOURCE_DIR}/src/fluid")
 endif ()
+if (USE_sfemMath)
+    add_subdirectory ("${sfem_SOURCE_DIR}/src/sfemMath/sfemBlas")
+endif ()
 set (sfempy)
 if (USE_BOOSTPYTHON_BINDINGS)
     set (sfempy ${sfem_SOURCE_DIR}/bindings/Deprecated/python/sfemlib.cpp)
@@ -587,6 +599,13 @@ if (USE_SHARED_LIB)
             set_target_properties (tm PROPERTIES COMPILE_FLAGS ${LIBSFEM_EXPORT_CFLAGS})
         endif ()
     endif()
+
+    if (USE_sfemMath)
+        set_target_properties (smath PROPERTIES COMPILE_DEFINITIONS "libsfem_EXPORTS")
+        if (NOT "${LIBOOFEM_EXPORT_CFLAGS}" STREQUAL "")
+            set_target_properties (smath PROPERTIES COMPILE_FLAGS ${LIBSFEM_EXPORT_CFLAGS})
+        endif ()
+    endif ()
 
     generate_export_header (libsfem
             BASE_NAME SFEM
