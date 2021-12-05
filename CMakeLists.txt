@@ -24,11 +24,26 @@ if (USE_CLANG)
     SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 endif ()
 
+set(USER_CONFIG "${CMAKE_CURRENT_SOURCE_DIR}/config/user.cmake" CACHE PATH
+        "Path to optional user configuration file.")
+
 project(sfem CXX C)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Load user settings before the defaults - this way the defaults will not
+# overwrite the user set options. If the user has not set all options, we still
+# have the defaults.
+message(STATUS "(optional) USER_CONFIG = ${USER_CONFIG}")
+include("${USER_CONFIG}" OPTIONAL)
+include("${CMAKE_CURRENT_SOURCE_DIR}/config/defaults.cmake")
+
+#set(${PROJECT_NAME}_VERSION 1.0.0)
 set (sfem_VERSION_MAJOR 1)
 set (sfem_VERSION_MINOR 0)
 set (sfem_VERSION_PATCH 0)
-#set(${PROJECT_NAME}_VERSION 1.0.0)
+
 set(CMAKE_MODULE_PATH  ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 # Default is debug build
@@ -47,10 +62,6 @@ else ()
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC")
     set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -fPIC")
 endif ()
-
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set (CMAKE_CXX_FLAGS_DEBUG "-DDEBUG ${CMAKE_CXX_FLAGS_DEBUG}")
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
