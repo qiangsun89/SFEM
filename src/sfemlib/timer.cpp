@@ -1,21 +1,30 @@
+//***************************************************************************************
 //
-// Created by qiang on 2021/12/5.
+//! \file timer.cpp
+//! This code get the system time.
+//!
+//! \author    qiang sun
+//! \version   V1.0.0
+//! \date      2021-12-07
+//! \copyright BSD 3-Clause License
 //
+//***************************************************************************************
 #include <cstdio>
 #include <cstring>
-#include "timer.h"
+#include "sfemlib/timer.h"
 
 namespace sfem{
     namespace {
         char outputBuffer[128];
 
         const char *converToString(std::chrono::duration<long, std::nano> duration) {
-            long nanoCounts = duration.count();
-            long sec = nanoCounts / 1000000000;
-            double usec = (nanoCounts % 1000000000) / 1000000000;
-            int hour = sec / 3600;
-            int minute = sec / 60 - hour * 60;
-            int second = sec - minute * 60 - hour * 3600;
+            /// how many time periods are contained in the specified time interval object
+            long Counts_ = duration.count();
+            long seconds = Counts_ / 1000000000;
+            double usec = (Counts_ % 1000000000) / 1000000000;
+            int hour = seconds / 3600;
+            int minute = seconds / 60 - hour * 60;
+            int second = seconds - minute * 60 - hour * 3600;
 
             if (hour) {
                 sprintf(outputBuffer, "%d hours %d minutes %d seconds", hour, minute, second);
@@ -57,11 +66,10 @@ namespace sfem{
         }
     }
 
-    const char *Timer::getTime() const {
-        std::time_t now = std::time(nullptr);
-        strcpy(outputBuffer, ctime(&now));
-        outputBuffer[strlen(outputBuffer) - 1] = '\0';
-        return outputBuffer;
+    const char *Timer::getTime() {
+        std::chrono::system_clock::time_point now_ = std::chrono::system_clock::now();
+        std::time_t time_t_now_ = std::chrono::system_clock::to_time_t(now_);
+        return ctime(&time_t_now_);
     }
 
     const char *Timer::getInterval() const {
