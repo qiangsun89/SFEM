@@ -43,6 +43,10 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# CMake needs to know where to find things
+set(SFEM_CMAKE_PATH ${PROJECT_SOURCE_DIR}/config)
+set(CMAKE_MODULE_PATH ${SFEM_CMAKE_PATH}/cmake/modules)
+
 # Load user settings before the defaults - this way the defaults will not
 # overwrite the user set options. If the user has not set all options, we still
 # have the defaults.
