@@ -1,11 +1,11 @@
-# Doxyfile 1.8.1.2
+# Doxyfile 1.8.17
 
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = OOFEM
-PROJECT_NUMBER         = @oofem_VERSION_MAJOR@.@oofem_VERSION_MINOR@
+PROJECT_NAME           = SFEM
+PROJECT_NUMBER         = @sfem_VERSION_MAJOR@.@sfem_VERSION_MINOR@.@sfem_VERSION_PATCH@
 PROJECT_BRIEF          =
 PROJECT_LOGO           =
 OUTPUT_DIRECTORY       = @DOXYGEN_OUTPUT@
@@ -92,19 +92,18 @@ WARN_IF_UNDOCUMENTED   = YES
 WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = YES
 WARN_FORMAT            = "$file:$line: $text"
-WARN_LOGFILE           = @oofem_BINARY_DIR@/apierrors.txt
+WARN_LOGFILE           = @sfem_BINARY_DIR@/apierrors.txt
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = @oofem_SOURCE_DIR@/doc/refman/mainpage \
-                         @oofem_SOURCE_DIR@/doc/refman/intro \
-                         @oofem_SOURCE_DIR@/src
+INPUT                  = @sfem_SOURCE_DIR@/docs/refman/mainpage \
+                         @sfem_SOURCE_DIR@/docs/refman/intro \
+                         @sfem_SOURCE_DIR@/src
 INPUT_ENCODING         = UTF-8
-FILE_PATTERNS          = *.h *.C
+FILE_PATTERNS          = *.h *.cpp
 RECURSIVE              = YES
-EXCLUDE                = @oofem_SOURCE_DIR@/src/main \
-                         @oofem_SOURCE_DIR@/src/dss
+EXCLUDE                = @sfem_SOURCE_DIR@/src/main
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
@@ -244,14 +243,12 @@ ENABLE_PREPROCESSING   = YES
 MACRO_EXPANSION        = NO
 EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
-INCLUDE_PATH           = @oofem_SOURCE_DIR@/src/ \
-                         @oofem_SOURCE_DIR@/src/oofemlib/ \
-                         @oofem_SOURCE_DIR@/src/oofemlib/xfem/ \
-                         @oofem_SOURCE_DIR@/src/oofemlib/iga/ \
-                         @oofem_SOURCE_DIR@/src/oofemlib/iml/ \
-                         @oofem_SOURCE_DIR@/src/fm/ \
-                         @oofem_SOURCE_DIR@/src/sm/ \
-                         @oofem_SOURCE_DIR@/src/tm/
+INCLUDE_PATH           = @sfem_SOURCE_DIR@/src/ \
+                         @sfem_SOURCE_DIR@/src/sfemlib/ \
+                         @sfem_SOURCE_DIR@/src/fluid/ \
+                         @sfem_SOURCE_DIR@/src/structural/ \
+                         @sfem_SOURCE_DIR@/src/sfemMath/ \
+                         @sfem_SOURCE_DIR@/src/transport/
 INCLUDE_FILE_PATTERNS  =
 
 # The PREDEFINED tag can be used to specify one or more macro names that

@@ -1,0 +1,10 @@
+/home/qiang/software/clion-2020.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/qiang/software/SFEM
+-- Configuring on/for 
+-- (optional) USER_CONFIG = /home/qiang/software/SFEM/config/user.cmake
+-- the  compiler is clang
+Build timestamp is 2021-12-09 22:42:13
+-- Target is 64 bits
+-- x86_64 architecture detected
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/qiang/software/SFEM/cmake-build-debug

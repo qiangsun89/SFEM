@@ -6,39 +6,28 @@ include (CheckIncludeFileCXX)
 include (CheckCXXSourceCompiles)
 include (GenerateExportHeader)
 include (ProcessorCount)
+# print custom message depending on the operating system
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    message(STATUS "Configuring on/for Linux")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    message(STATUS "Configuring on/for macOS")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    message(STATUS "Configuring on/for Windows")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "AIX")
+    message(STATUS "Configuring on/for IBM AIX")
+else()
+    message(STATUS "Configuring on/for ${CMAKE_SYSTEM_NAME}")
+endif()
 # Use ccache if available. Needs to be performed early for it to work with cmake.
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-# add clang definition.
-OPTION(USE_CLANG "use clang building the project" ON)
-IF(USE_CLANG)
-    add_definitions("-DUSE_CLANG")
-endif(USE_CLANG)
-message("USE_CLANG=${USE_CLANG}")
-if (USE_CLANG)
-    message(status "the  compiler is clang")
-    SET (CMAKE_C_COMPILER             "/usr/local/bin/clang")
-    SET (CMAKE_C_FLAGS                "-Wall -std=c99")
-    SET (CMAKE_C_FLAGS_DEBUG          "-g")
-    SET (CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
-    SET (CMAKE_C_FLAGS_RELEASE        "-O4 -DNDEBUG")
-    SET (CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
-
-    SET (CMAKE_CXX_COMPILER             "/usr/local/bin/clang++")
-    SET (CMAKE_CXX_FLAGS                "-Wall")
-    SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
-    SET (CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
-    SET (CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
-    SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
-endif ()
-
 set(USER_CONFIG "${CMAKE_CURRENT_SOURCE_DIR}/config/user.cmake" CACHE PATH
         "Path to optional user configuration file.")
 
-project(sfem CXX C)
+project(sfem LANGUAGES CXX C)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -54,12 +43,35 @@ message(STATUS "(optional) USER_CONFIG = ${USER_CONFIG}")
 include("${USER_CONFIG}" OPTIONAL)
 include("${CMAKE_CURRENT_SOURCE_DIR}/config/defaults.cmake")
 
+IF(USE_CLANG)
+    add_definitions("-DUSE_CLANG")
+endif(USE_CLANG)
+
+if (USE_CLANG)
+    message(STATUS "the  compiler is clang")
+    SET (CMAKE_C_COMPILER             ${CMAKE_C_COMPILER_DIR})
+    SET (CMAKE_C_FLAGS                "-Wall -std=c99")
+    SET (CMAKE_C_FLAGS_DEBUG          "-g")
+    SET (CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+    SET (CMAKE_C_FLAGS_RELEASE        "-O4 -DNDEBUG")
+    SET (CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+
+    SET (CMAKE_CXX_COMPILER             ${CMAKE_CXX_COMPILER_DIR})
+    SET (CMAKE_CXX_FLAGS                "-Wall")
+    SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
+    SET (CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+    SET (CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
+    SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+endif ()
+
 #set(${PROJECT_NAME}_VERSION 1.0.0)
 set (sfem_VERSION_MAJOR 1)
 set (sfem_VERSION_MINOR 0)
 set (sfem_VERSION_PATCH 0)
+set (sfem_COPYRIGHT "Copyright (C) 2021 Qiang Sun")
+set (sfem_EMAIL "sunqiang891103@gmail.com")
 
-set(CMAKE_MODULE_PATH  ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+set(CMAKE_MODULE_PATH  ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 # Default is debug build
 if (NOT CMAKE_BUILD_TYPE)
@@ -100,33 +112,12 @@ if (CMAKE_COMPILER_IS_GNUCC)
     endif()
 endif ()
 
-######################## Custom paths #################################
-set (SLEPC_DIR CACHE PATH "Manual SLEPc directory")
-set (X11_DIR CACHE PATH "Manual X11 directory (OOFEG)")
-set (TINYXML2_DIR CACHE PATH "Manual TinyXML-2 directory (CEMHYD only)")
-#set (PETSC_DIR CACHE PATH "Manual PETSc directory")
-set (PETSC_ARCH CACHE STRING "Manual PETSc arch name (e.g. linux-gnu-cxx-opt)")
-set (MPI_DIR CACHE PATH "Manual MPI directory")
-set (VTK_DIR CACHE PATH "Manual VTK directory (For binary VTU export)")
-set (LAPACK_DIR CACHE PATH "Manual LAPACK directory")
-set (SUPERLU_MT_DIR CACHE PATH "Manual SuperLU_MT directory")
-set (SPOOLES_DIR CACHE PATH "Manual SPOOLES directory")
-set (ELIXIR_DIR CACHE PATH "Manual Elixir directory (OOFEG only)")
-set (CKIT_DIR CACHE PATH "Manual CKit directory (OOFEG only)")
-set (METIS_DIR CACHE PATH "Manual Metis directory (Load balancing)")
-set (PARMETIS_DIR CACHE PATH "Manual ParMetis directory (Load balancing)")
-#intel mkl pardiso
-set (INTEL_MKL_PARDISO_DIR CACHE PATH "Manual mkl pardiso directory (sparse direct solver)")
-#pardiso-project.org
-set (PARDISO_ORG_DIR CACHE PATH "Manual pardiso-project.org directory (sparse direct solver)")
-#set (BOOST_DIR CACHE PATH "Manual Boost directory")
-set (PYBIND_DIR CACHE PATH "Manual pybind11 directory")
-
 ######################## Internal libraries ###########################
 # I believe the subdirs should be used when including instead.
 # 3rd party library
-include_directories( "/home/qiang/software/eigen-install/include/eigen3" )
+include_directories( ${Eigen_DIR} )
 include_directories ("${sfem_SOURCE_DIR}/include")
+include_directories ("${sfem_BINARY_DIR}")
 
 # Is there really any reason not to compile all of them? Some has cross dependencies.
 list (APPEND LIBS $<TARGET_OBJECTS:core>)
@@ -169,8 +160,19 @@ if(USE_sfemMath)
     add_definitions (-D__SFEM_MATH_MODULE)
     list (APPEND LIBS $<TARGET_OBJECTS:smath>)
     list (APPEND MODULE_LIST "smath")
-
 endif()
+
+if (USE_EM)
+    include_directories ("${sfem_SOURCE_DIR}/include/electromagnetics")
+    add_definitions (-D__EM_MODULE)
+    list (APPEND LIBS $<TARGET_OBJECTS:em>)
+    list (APPEND MODULE_LIST "em")
+
+    if (NOT MSVC AND NOT MINGW)
+        find_library (DL_LIB dl)
+        list (APPEND EXT_LIBS ${DL_LIB})
+    endif ()
+endif ()
 
 if (USE_OPENMP)
     include (FindOpenMP)
@@ -213,16 +215,16 @@ if (USE_OOFEG)
 endif ()
 
 ######################## External libraries ###########################
-#if (USE_BOOST)
-#    set (CMAKE_LIBRARY_DIR ${BOOST_DIR})
-#    find_package (BOOST REQUIRED)
-#    list (APPEND EXT_LIBS ${BOOST_LIBRARIES})
-#    if (BOOST_DIR)
-#    	include_directories ("${BOOST_DIR}")
-#    	list (APPEND MODULE_LIST "BOOST")
-#     endif ()
-#    add_definitions (-D__BOOST_MODULE)
-#endif ()
+if (USE_BOOST)
+    set (CMAKE_LIBRARY_DIR ${BOOST_DIR})
+    find_package (BOOST REQUIRED)
+    list (APPEND EXT_LIBS ${BOOST_LIBRARIES})
+    if (BOOST_DIR)
+    	include_directories ("${BOOST_DIR}")
+    	list (APPEND MODULE_LIST "BOOST")
+     endif ()
+    add_definitions (-D__BOOST_MODULE)
+endif ()
 
 if (USE_LAPACK)
     set (CMAKE_LIBRARY_DIR ${LAPACK_DIR})
@@ -232,12 +234,6 @@ if (USE_LAPACK)
     add_definitions (-D__LAPACK_MODULE)
 endif ()
 
-## There is a conflict on set.h as defined by libstdc and superlu_mt 3.1
-## Therefore it is assumed that superlu include files
-## are included using #include "SUPERLU_MT/include"
-## The ${SUPERLU_MT_DIR} is added into compiler include path
-## Therefore SUPERLU_MT/include has to be manually added pointing to
-## ${SUPERLU_MT__DIR}/src directory
 if (USE_SUPERLU_MT)
     set (CMAKE_LIBRARY_DIR ${SUPERLU_MT_DIR})
     #find_package (SuperLU REQUIRED)
@@ -528,14 +524,15 @@ endif()
 site_name (HOST_NAME)
 set (HOST_TYPE "${CMAKE_SYSTEM_PROCESSOR}-${CMAKE_SYSTEM_NAME}") # This should be renamed TARGET_TYPE.
 set (BUILDNAME "SFEM(${MODULE_LIST})-${HOST_TYPE}-${HOST_NAME}")
-
+string(TIMESTAMP BUILD_TIMESTAMP "%Y-%m-%d %H:%M:%S")
+message("Build timestamp is ${BUILD_TIMESTAMP}")
 check_include_file_cxx ("execinfo.h" HAVE_EXECINFO_H)
 check_cxx_symbol_exists ("cbrt" "cmath" HAVE_CBRT)
 check_cxx_symbol_exists ("isnan" "cmath" HAVE_ISNAN)
 if (USE_SHARED_LIB)
-    set (OOFEM_EXPORT_HEADER "#include \"sfem_export.h\"")
+    set (SFEM_EXPORT_HEADER "#include \"sfem_export.h\"")
     # For consistant library on linux and windows platforms.
-    #add_compiler_export_flags (LIBOOFEM_EXPORT_CFLAGS)
+    #add_compiler_export_flags (LIBSFEM_EXPORT_CFLAGS)
 else ()
     set (SFEM_EXPORT_HEADER "#define SFEM_EXPORT\n#define SFEM_NO_EXPORT")
 endif ()
@@ -560,6 +557,9 @@ if (USE_TM)
 endif ()
 if (USE_FM)
     add_subdirectory ("${sfem_SOURCE_DIR}/src/fluid")
+endif ()
+if (USE_EM)
+    add_subdirectory ("${sfem_SOURCE_DIR}/src/electromagnetics")
 endif ()
 if (USE_sfemMath)
     add_subdirectory ("${sfem_SOURCE_DIR}/src/sfemMath/sfemBlas")
@@ -604,6 +604,13 @@ if (USE_SHARED_LIB)
         endif ()
     endif()
 
+    if (USE_EM)
+        set_target_properties (em PROPERTIES COMPILE_DEFINITIONS "libsfem_EXPORTS")
+        if (NOT "${LIBOOFEM_EXPORT_CFLAGS}" STREQUAL "")
+            set_target_properties (em PROPERTIES COMPILE_FLAGS ${LIBSFEM_EXPORT_CFLAGS})
+        endif ()
+    endif()
+
     if (USE_sfemMath)
         set_target_properties (smath PROPERTIES COMPILE_DEFINITIONS "libsfem_EXPORTS")
         if (NOT "${LIBOOFEM_EXPORT_CFLAGS}" STREQUAL "")
@@ -624,6 +631,53 @@ else ()
     add_executable (sfem ${sfem_SOURCE_DIR}/src/main/SFEM.cpp ${LIBS})
     target_link_libraries (sfem ${EXT_LIBS})
 endif ()
+
+# let the preprocessor know about the system name
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_compile_definitions(sfem PUBLIC "IS_LINUX")
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    target_compile_definitions(sfem PUBLIC "IS_MACOS")
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    target_compile_definitions(sfem PUBLIC "IS_WINDOWS")
+endif()
+# let the preprocessor know about the compiler vendor
+if(CMAKE_CXX_COMPILER_ID MATCHES Intel)
+    target_compile_definitions(sfem PUBLIC "IS_INTEL_CXX_COMPILER")
+endif()
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
+    target_compile_definitions(sfem PUBLIC "IS_GNU_CXX_COMPILER")
+endif()
+if(CMAKE_CXX_COMPILER_ID MATCHES PGI)
+    target_compile_definitions(sfem PUBLIC "IS_PGI_CXX_COMPILER")
+endif()
+if(CMAKE_CXX_COMPILER_ID MATCHES XL)
+    target_compile_definitions(sfem PUBLIC "IS_XL_CXX_COMPILER")
+endif()
+# let the preprocessor know about the size of void *
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    target_compile_definitions(sfem PUBLIC "IS_64_BIT_ARCH")
+    message(STATUS "Target is 64 bits")
+else()
+    target_compile_definitions(sfem PUBLIC "IS_32_BIT_ARCH")
+    message(STATUS "Target is 32 bits")
+endif()
+
+# let the preprocessor know about the host processor architecture
+if(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "i386")
+    message(STATUS "i386 architecture detected")
+elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "i686")
+    message(STATUS "i686 architecture detected")
+elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES "x86_64")
+    message(STATUS "x86_64 architecture detected")
+else()
+    message(STATUS "host processor architecture is unknown")
+endif()
+
+target_compile_definitions(sfem
+        PUBLIC "ARCHITECTURE=${CMAKE_HOST_SYSTEM_PROCESSOR}"
+        )
 
 install (TARGETS sfem DESTINATION bin)
 
@@ -663,19 +717,20 @@ if (DOXYGEN_FOUND)
             "${sfem_BINARY_DIR}/doxygen.cfg")
 
     add_custom_target (
-            apidoc
+            doc
             COMMAND ${CMAKE_COMMAND} -E echo_append "Building API Documentation..."
             COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_INPUT}
             COMMAND ${CMAKE_COMMAND} -E echo "Done."
             WORKING_DIRECTORY ${sfem_BINARY_DIR}
             DEPENDS)
+
 endif (DOXYGEN_FOUND)
+
 
 configure_file (
         "${sfem_SOURCE_DIR}/docs/include.tex.in"
         "${sfem_BINARY_DIR}")
 
-# TODO: Manuals not done yet
 add_custom_target (
         elementlibmanual
         COMMAND pdflatex elementlibmanual --output=${sfem_BINARY_DIR}/docs/

@@ -1,12 +1,12 @@
 <hr />
-This page is part of the <a href="@oofem_HOMEPAGE@">OOFEM-@oofem_VERSION_MAJOR@.@oofem_VERSION_MINOR@</a> documentation. Copyright @oofem_COPYRIGHT@ <a href="@bp_HOMEPAGE@">Bořek Patzák</a>
+This page is part of the <a href="@sfem_HOMEPAGE@">SFEM-@sfem_VERSION_MAJOR@.@sfem_VERSION_MINOR@</a> documentation. Copyright @sfem_COPYRIGHT@
 <br />
-Project e-mail: <a href="mailto:@oofem_EMAIL@">@oofem_EMAIL@</a>
+Project e-mail: <a href="mailto:@sfem_EMAIL@">@sfem_EMAIL@</a>
 <br clear=all />
 <address><small>
 Generated at $datetime for $projectname by <a href="http://www.doxygen.org/index.html">
 doxygen
 </a> $doxygenversion written by <a href="mailto:dimitri@stack.nl">Dimitri van Heesch</a>,
- &copy;&nbsp;1997-2011</small></address>
+ &copy;&nbsp;2021</small></address>
 </body>
 </html>

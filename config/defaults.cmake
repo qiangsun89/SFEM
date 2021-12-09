@@ -69,6 +69,7 @@ option (USE_VTK "Enable VTK (for exporting binary VTU-files)" OFF)
 #option (USE_CGAL "CGAL" OFF)
 # Internal modules
 option (USE_SM "Enable structural mechanics module" ON)
+option (USE_EM "Enable electromagnetics module" ON)
 option (USE_FM "Enable fluid mechanics module" ON)
 option (USE_PFEM "Enable PFEM module" OFF)
 option (USE_TM "Enable heat/mass transfer module" ON)
@@ -81,7 +82,8 @@ option (USE_HDF5 "HDF5 support" OFF)
 # use sfem math library
 option (USE_sfemMath "Enable sfemMath usage" ON)
 #option (USE_sfemMath "Enable sfemMath usage" OFF)
-
+# add clang definition.
+OPTION(USE_CLANG "use clang building the project" ON)
 # Optional overrides for autodetected MPIEXEC and MPIEXEC_NUMPROC_FLAG
 # set(SFEM_MPIEXEC "mpirun" CACHE STRING "Command for running MPI tests")
 # set(SFEM_MPIEXEC_NP "-np" CACHE STRING
@@ -103,6 +105,9 @@ option(SFEM_ENABLE_GOOGLE_BENCHMARKS "Build all of the Google benchmarks" OFF)
 # autodetected C++ compiler.
 # set(CXX g++)
 # set(MPICXX mpicxx)
+
+set(CMAKE_C_COMPILER_DIR "/usr/local/bin/clang" CACHE PATH "Path to CMAKE_C_COMPILER_DIR")
+set(CMAKE_CXX_COMPILER_DIR "/usr/local/bin/clang++" CACHE PATH "Path to CMAKE_CXX_COMPILER_DIR")
 
 # Set the target CUDA architecture
 set(CUDA_ARCH "sm_60" CACHE STRING "Target CUDA architecture.")
@@ -126,7 +131,7 @@ if (SFEM_USE_CUDA)
    set(HYPRE_REQUIRED_LIBRARIES "-lcusparse" "-lcurand" CACHE STRING
        "Libraries that HYPRE depends on.")
 endif()
-
+set(Eigen_DIR "/home/qiang/software/eigen-install/include/eigen3" CACHE PATH "Path to the Eigen3 library.")
 set(METIS_DIR "${SFEM_DIR}/../metis-4.0" CACHE PATH "Path to the METIS library.")
 
 set(LIBUNWIND_DIR "" CACHE PATH "Path to Libunwind.")
@@ -268,3 +273,25 @@ set(LAPACK_LIBRARIES "" CACHE STRING "The LAPACK library.")
 set(CMAKE_SKIP_PREPROCESSED_SOURCE_RULES ON) # Skip *.i rules
 set(CMAKE_SKIP_ASSEMBLY_SOURCE_RULES  ON)    # Skip *.s rules
 # set(CMAKE_VERBOSE_MAKEFILE ON CACHE BOOL "Verbose makefiles.")
+
+######################## Custom paths #################################
+set (SLEPC_DIR CACHE PATH "Manual SLEPc directory")
+set (X11_DIR CACHE PATH "Manual X11 directory (OOFEG)")
+set (TINYXML2_DIR CACHE PATH "Manual TinyXML-2 directory (CEMHYD only)")
+#set (PETSC_DIR CACHE PATH "Manual PETSc directory")
+set (PETSC_ARCH CACHE STRING "Manual PETSc arch name (e.g. linux-gnu-cxx-opt)")
+set (MPI_DIR CACHE PATH "Manual MPI directory")
+set (VTK_DIR CACHE PATH "Manual VTK directory (For binary VTU export)")
+set (LAPACK_DIR CACHE PATH "Manual LAPACK directory")
+set (SUPERLU_MT_DIR CACHE PATH "Manual SuperLU_MT directory")
+set (SPOOLES_DIR CACHE PATH "Manual SPOOLES directory")
+set (ELIXIR_DIR CACHE PATH "Manual Elixir directory (OOFEG only)")
+set (CKIT_DIR CACHE PATH "Manual CKit directory (OOFEG only)")
+set (METIS_DIR CACHE PATH "Manual Metis directory (Load balancing)")
+set (PARMETIS_DIR CACHE PATH "Manual ParMetis directory (Load balancing)")
+#intel mkl pardiso
+set (INTEL_MKL_PARDISO_DIR CACHE PATH "Manual mkl pardiso directory (sparse direct solver)")
+#pardiso-project.org
+set (PARDISO_ORG_DIR CACHE PATH "Manual pardiso-project.org directory (sparse direct solver)")
+#set (BOOST_DIR CACHE PATH "Manual Boost directory")
+set (PYBIND_DIR CACHE PATH "Manual pybind11 directory")
