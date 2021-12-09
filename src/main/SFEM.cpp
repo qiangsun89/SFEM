@@ -1,6 +1,7 @@
 #include <chrono>
 #include <iostream>
 #include "sfemlib/timer.h"
+#include "Eigen/Dense"
 
 using namespace sfem;
 int main()

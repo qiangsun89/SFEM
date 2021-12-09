@@ -3,10 +3,10 @@
 SHELL      = /bin/sh
 BUILD_DIR_HTML  = html
 BUILD_DIR_LATEX = latex
-INST_DIR = oofemrefman
+INST_DIR = sfemrefman
 DOCXX      = doxygen
 RCP = scp
-ROBOT = /home/bp/oofem-doc/www/robot2.pl
+ROBOT = /home/bp/sfem-doc/www/robot2.pl
 
 all: html 
 
