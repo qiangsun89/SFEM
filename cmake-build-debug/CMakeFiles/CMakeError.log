@@ -1,0 +1,35 @@
+Determining if the isnan exist failed with the following output:
+Change Dir: /home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d7ec8/fast && /usr/bin/make  -f CMakeFiles/cmTC_d7ec8.dir/build.make CMakeFiles/cmTC_d7ec8.dir/build
+make[1]: Entering directory '/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d7ec8.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wall -Wall -fPIC    -std=c++14 -o CMakeFiles/cmTC_d7ec8.dir/CheckSymbolExists.cxx.o -c /home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘isnan’ was not declared in this scope; did you mean ‘std::isnan’?
+    8 |   return ((int*)(&isnan))[argc];
+      |                   ^~~~~
+      |                   std::isnan
+In file included from /home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:
+/usr/include/c++/9/cmath:632:5: note: ‘std::isnan’ declared here
+  632 |     isnan(_Tp __x)
+      |     ^~~~~
+make[1]: *** [CMakeFiles/cmTC_d7ec8.dir/build.make:86: CMakeFiles/cmTC_d7ec8.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:141: cmTC_d7ec8/fast] Error 2
+
+
+File /home/qiang/software/SFEM/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <cmath>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isnan
+  return ((int*)(&isnan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

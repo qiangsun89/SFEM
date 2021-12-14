@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['r4_5fabs_135',['r4_abs',['../blas0_8cpp.html#a5c1bb00b7d83fa1723180a27a5d252e8',1,'blas0.cpp']]],
+  ['r4_5fmax_136',['r4_max',['../blas0_8cpp.html#aafc842a582d283e98d1107defcd18eed',1,'blas0.cpp']]],
+  ['r4_5fsign_137',['r4_sign',['../blas0_8cpp.html#a1c3a72c2caea149876f763b0a8b9f299',1,'blas0.cpp']]],
+  ['r4_5funiform_5f01_138',['r4_uniform_01',['../blas0_8cpp.html#af4a90f8bd4b0faff67786316bca03eaf',1,'blas0.cpp']]],
+  ['r4_5funiform_5fab_139',['r4_uniform_ab',['../blas0_8cpp.html#a8fecae14ab5a483c41381ffe99a14943',1,'blas0.cpp']]],
+  ['r4mat_5fprint_140',['r4mat_print',['../blas0_8cpp.html#ab7ba574acd1d8d63d4c6eb44a453a4be',1,'blas0.cpp']]],
+  ['r4mat_5fprint_5fsome_141',['r4mat_print_some',['../blas0_8cpp.html#ab8626c700445b2ab81ad2febac55fe67',1,'blas0.cpp']]],
+  ['r4mat_5ftest_142',['r4mat_test',['../blas0_8cpp.html#a784eb7a09649adda4e50acbb3869eb8d',1,'blas0.cpp']]],
+  ['r4mat_5funiform_5f01_143',['r4mat_uniform_01',['../blas0_8cpp.html#aaff809b552e4c1531e12594220b73673',1,'blas0.cpp']]],
+  ['r4vec_5fprint_144',['r4vec_print',['../blas0_8cpp.html#a4d882deed7c9a20abe58ceef6c183bfb',1,'blas0.cpp']]],
+  ['r8_5fabs_145',['r8_abs',['../blas0_8cpp.html#a764d529be849adbbb2865d6c886710dc',1,'blas0.cpp']]],
+  ['r8_5fmax_146',['r8_max',['../blas0_8cpp.html#add31fc483ea093dc4ed605b9a6b095ba',1,'blas0.cpp']]],
+  ['r8_5fsign_147',['r8_sign',['../blas0_8cpp.html#a1420dbaa964dd7d85f6f6536680c252e',1,'blas0.cpp']]],
+  ['r8_5funiform_5f01_148',['r8_uniform_01',['../blas0_8cpp.html#a945ebb6e5a945a7b539750532e5e22f7',1,'blas0.cpp']]],
+  ['r8_5funiform_5fab_149',['r8_uniform_ab',['../blas0_8cpp.html#a65f7f005b25ac0418f853c310acbc742',1,'blas0.cpp']]],
+  ['r8mat_5fprint_150',['r8mat_print',['../blas0_8cpp.html#a40adf3fe9339d9173b4d7e9cad179622',1,'blas0.cpp']]],
+  ['r8mat_5fprint_5fsome_151',['r8mat_print_some',['../blas0_8cpp.html#ad1cf18ec00aea8e4cce9a8c04d0f8f6d',1,'blas0.cpp']]],
+  ['r8mat_5ftest_152',['r8mat_test',['../blas0_8cpp.html#aad0710a1e87113bff60f3b9a16bd1654',1,'blas0.cpp']]],
+  ['r8mat_5funiform_5f01_153',['r8mat_uniform_01',['../blas0_8cpp.html#aa7c3cb25f241dde90d82b347f5062348',1,'blas0.cpp']]],
+  ['r8vec_5fprint_154',['r8vec_print',['../blas0_8cpp.html#ae395d66252e7725f05fce8dd5e9c70af',1,'blas0.cpp']]]
+];

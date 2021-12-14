@@ -1,0 +1,17 @@
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:24: warning: documented symbol 'void sfem::Timer::getUtime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:36: warning: documented symbol 'void sfem::Timer::getTime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:41: warning: documented symbol 'sfem::Timer::Timer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:46: warning: documented symbol 'void sfem::Timer::startTimer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:54: warning: documented symbol 'void sfem::Timer::stopTimer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:60: warning: documented symbol 'void sfem::Timer::pauseTimer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:68: warning: documented symbol 'void sfem::Timer::resumeTimer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:75: warning: documented symbol 'void sfem::Timer::initTimer' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:82: warning: documented symbol 'double sfem::Timer::getUtime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:88: warning: documented symbol 'double sfem::Timer::getWtime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:94: warning: documented symbol 'void sfem::Timer::convert2HMS' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:112: warning: documented symbol 'void sfem::Timer::toString' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:117: warning: documented symbol 'void sfem::Timer::updateElapsedTime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:131: warning: documented symbol 'double sfem::EngngModelTimer::getUtime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:136: warning: documented symbol 'double sfem::EngngModelTimer::getWtime' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:141: warning: documented symbol 'void sfem::EngngModelTimer::convert2HMS' was not declared or defined.
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp:146: warning: documented symbol 'void sfem::EngngModelTimer::toString' was not declared or defined.

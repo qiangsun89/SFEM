@@ -1,0 +1,140 @@
+\hypertarget{blas1__d_8cpp}{}\doxysubsection{blas1\+\_\+d.\+cpp File Reference}
+\label{blas1__d_8cpp}\index{blas1\_d.cpp@{blas1\_d.cpp}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include \char`\"{}sfem\+Math/sfem\+Blas/blas0.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sfem\+Math/sfem\+Blas/blas1\+\_\+d.\+h\char`\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{blas1__d_8cpp_a084db6f6ce10a7875c330db0bde32fab}{dasum}} (int n, double x\mbox{[}$\,$\mbox{]}, int incx)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_ad99047a1a57b1b5c2810bc8ccb8f54e4}{daxpy}} (int n, double da, double dx\mbox{[}$\,$\mbox{]}, int incx, double dy\mbox{[}$\,$\mbox{]}, int incy)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_a30b6180d8cacac4a5c9009b620072833}{dcopy}} (int n, double dx\mbox{[}$\,$\mbox{]}, int incx, double dy\mbox{[}$\,$\mbox{]}, int incy)
+\item 
+double \mbox{\hyperlink{blas1__d_8cpp_a8234f76df1bc6e451f4d6b80d8af8e60}{ddot}} (int n, double dx\mbox{[}$\,$\mbox{]}, int incx, double dy\mbox{[}$\,$\mbox{]}, int incy)
+\item 
+double \mbox{\hyperlink{blas1__d_8cpp_a54c8a33d2e7f3aba9cab88fdcccfa633}{dnrm2}} (int n, double x\mbox{[}$\,$\mbox{]}, int incx)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_a54b8d7b71b1ee96a025705f265ce7ccc}{drot}} (int n, double x\mbox{[}$\,$\mbox{]}, int incx, double y\mbox{[}$\,$\mbox{]}, int incy, double c, double s)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_a07f9659d0ae240f9bfcc03ab3c2f434e}{drotg}} (double $\ast$sa, double $\ast$sb, double $\ast$c, double $\ast$s)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_ae229024124f01de90774c9ca369e6dbe}{dscal}} (int n, double sa, double x\mbox{[}$\,$\mbox{]}, int incx)
+\item 
+void \mbox{\hyperlink{blas1__d_8cpp_a0aa1520e6c95fc39742fbe78a6c0c87c}{dswap}} (int n, double x\mbox{[}$\,$\mbox{]}, int incx, double y\mbox{[}$\,$\mbox{]}, int incy)
+\item 
+int \mbox{\hyperlink{blas1__d_8cpp_ac90e378babdbf65e4b842069ff9a9e3e}{idamax}} (int n, double dx\mbox{[}$\,$\mbox{]}, int incx)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Function Documentation}
+\mbox{\Hypertarget{blas1__d_8cpp_a084db6f6ce10a7875c330db0bde32fab}\label{blas1__d_8cpp_a084db6f6ce10a7875c330db0bde32fab}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!dasum@{dasum}}
+\index{dasum@{dasum}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{dasum()}{dasum()}}
+{\footnotesize\ttfamily double dasum (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 18 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_ad99047a1a57b1b5c2810bc8ccb8f54e4}\label{blas1__d_8cpp_ad99047a1a57b1b5c2810bc8ccb8f54e4}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!daxpy@{daxpy}}
+\index{daxpy@{daxpy}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{daxpy()}{daxpy()}}
+{\footnotesize\ttfamily void daxpy (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{da,  }\item[{double}]{dx\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx,  }\item[{double}]{dy\mbox{[}$\,$\mbox{]},  }\item[{int}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a30b6180d8cacac4a5c9009b620072833}\label{blas1__d_8cpp_a30b6180d8cacac4a5c9009b620072833}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!dcopy@{dcopy}}
+\index{dcopy@{dcopy}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{dcopy()}{dcopy()}}
+{\footnotesize\ttfamily void dcopy (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{dx\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx,  }\item[{double}]{dy\mbox{[}$\,$\mbox{]},  }\item[{int}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 208 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a8234f76df1bc6e451f4d6b80d8af8e60}\label{blas1__d_8cpp_a8234f76df1bc6e451f4d6b80d8af8e60}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!ddot@{ddot}}
+\index{ddot@{ddot}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{ddot()}{ddot()}}
+{\footnotesize\ttfamily double ddot (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{dx\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx,  }\item[{double}]{dy\mbox{[}$\,$\mbox{]},  }\item[{int}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 327 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a54c8a33d2e7f3aba9cab88fdcccfa633}\label{blas1__d_8cpp_a54c8a33d2e7f3aba9cab88fdcccfa633}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!dnrm2@{dnrm2}}
+\index{dnrm2@{dnrm2}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{dnrm2()}{dnrm2()}}
+{\footnotesize\ttfamily double dnrm2 (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 453 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a54b8d7b71b1ee96a025705f265ce7ccc}\label{blas1__d_8cpp_a54b8d7b71b1ee96a025705f265ce7ccc}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!drot@{drot}}
+\index{drot@{drot}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{drot()}{drot()}}
+{\footnotesize\ttfamily void drot (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx,  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{int}]{incy,  }\item[{double}]{c,  }\item[{double}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 550 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a07f9659d0ae240f9bfcc03ab3c2f434e}\label{blas1__d_8cpp_a07f9659d0ae240f9bfcc03ab3c2f434e}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!drotg@{drotg}}
+\index{drotg@{drotg}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{drotg()}{drotg()}}
+{\footnotesize\ttfamily void drotg (\begin{DoxyParamCaption}\item[{double $\ast$}]{sa,  }\item[{double $\ast$}]{sb,  }\item[{double $\ast$}]{c,  }\item[{double $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 655 of file blas1\+\_\+d.\+cpp.
+
+
+
+References r8\+\_\+sign().
+
+\mbox{\Hypertarget{blas1__d_8cpp_ae229024124f01de90774c9ca369e6dbe}\label{blas1__d_8cpp_ae229024124f01de90774c9ca369e6dbe}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!dscal@{dscal}}
+\index{dscal@{dscal}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{dscal()}{dscal()}}
+{\footnotesize\ttfamily void dscal (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{sa,  }\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 779 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_a0aa1520e6c95fc39742fbe78a6c0c87c}\label{blas1__d_8cpp_a0aa1520e6c95fc39742fbe78a6c0c87c}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!dswap@{dswap}}
+\index{dswap@{dswap}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{dswap()}{dswap()}}
+{\footnotesize\ttfamily void dswap (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx,  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{int}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 874 of file blas1\+\_\+d.\+cpp.
+
+\mbox{\Hypertarget{blas1__d_8cpp_ac90e378babdbf65e4b842069ff9a9e3e}\label{blas1__d_8cpp_ac90e378babdbf65e4b842069ff9a9e3e}} 
+\index{blas1\_d.cpp@{blas1\_d.cpp}!idamax@{idamax}}
+\index{idamax@{idamax}!blas1\_d.cpp@{blas1\_d.cpp}}
+\doxyparagraph{\texorpdfstring{idamax()}{idamax()}}
+{\footnotesize\ttfamily int idamax (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{dx\mbox{[}$\,$\mbox{]},  }\item[{int}]{incx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 993 of file blas1\+\_\+d.\+cpp.
+

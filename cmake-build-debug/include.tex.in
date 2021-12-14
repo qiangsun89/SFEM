@@ -1,0 +1,2 @@
+\newcommand{\sfem}{\htmladdnormallink{SFEM}\ }
+\newcommand{\sfemlnk}[1]{\htmladdnormallink{#1}\ }

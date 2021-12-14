@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/sfemlib/timer.h
+sfemcfg.h
+../include/sfemlib/sfemcfg.h
+chrono
+-
+
+/home/qiang/software/SFEM/src/sfemlib/dof.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/domain.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/error.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/field.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/numericalMethod.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/sparseMatrix.cpp
+
+/home/qiang/software/SFEM/src/sfemlib/timer.cpp
+sfemlib/timer.h
+/home/qiang/software/SFEM/src/sfemlib/sfemlib/timer.h
+cstdio
+-
+sys/resource.h
+-
+ctime
+-
+
+/home/qiang/software/SFEM/src/sfemlib/workBench.cpp
+
+sfem_export.h
+
+sfemcfg.h
+sfem_export.h
+sfem_export.h
+

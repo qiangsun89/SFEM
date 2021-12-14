@@ -1,0 +1,37 @@
+/home/qiang/software/clion-2020.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/qiang/software/SFEM
+-- Configuring on/for 
+-- The CXX compiler identification is GNU 9.3.0
+-- The C compiler identification is GNU 9.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- (optional) USER_CONFIG = /home/qiang/software/SFEM/config/user.cmake
+-- the  compiler is clang
+Build timestamp is 2021-12-12 14:50:56
+-- Looking for C++ include execinfo.h
+-- Looking for C++ include execinfo.h - found
+-- Looking for cbrt
+-- Looking for cbrt - found
+-- Looking for isnan
+-- Looking for isnan - not found
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Target is 64 bits
+-- x86_64 architecture detected
+-- Found Doxygen: /usr/bin/doxygen (found version "1.8.17") found components: doxygen dot 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/qiang/software/SFEM/cmake-build-debug

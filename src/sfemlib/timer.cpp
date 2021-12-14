@@ -9,75 +9,142 @@
 //! \copyright BSD 3-Clause License
 //
 //***************************************************************************************
-#include <cstdio>
-#include <cstring>
+
 #include "sfemlib/timer.h"
+#include <cstdio>
+
+#ifndef _WIN32 //_MSC_VER and __MINGW32__ included
+//for getrusage - user time reporting
+#include <sys/resource.h>
+#else
+#include <ctime>
+#endif
 
 namespace sfem{
-    namespace {
-        char outputBuffer[128];
+    void Timer :: getUtime(std :: chrono :: duration< double > &answer)
+    {
+#ifdef _WIN32 //_MSC_VER and __MINGW32__ included
+        clock_t utime = clock();
+    answer = std :: chrono :: seconds(utime / CLOCKS_PER_SEC);
+#else
+        struct rusage rsg;
+        getrusage(RUSAGE_SELF, & rsg);
+        answer = std :: chrono :: seconds(rsg.ru_utime.tv_sec) + std :: chrono :: microseconds(rsg.ru_utime.tv_usec);
+#endif
+    }
 
-        const char *converToString(std::chrono::duration<long, std::nano> duration) {
-            /// how many time periods are contained in the specified time interval object
-            long Counts_ = duration.count();
-            long seconds = Counts_ / 1000000000;
-            double usec = (Counts_ % 1000000000) / 1000000000;
-            int hour = seconds / 3600;
-            int minute = seconds / 60 - hour * 60;
-            int second = seconds - minute * 60 - hour * 3600;
+    void Timer :: getTime(std :: chrono :: time_point< std :: chrono :: high_resolution_clock > &answer)
+    {
+        answer = std :: chrono :: high_resolution_clock :: now();
+    }
 
-            if (hour) {
-                sprintf(outputBuffer, "%d hours %d minutes %d seconds", hour, minute, second);
-            } else if (minute) {
-                sprintf(outputBuffer, "%d minutes %d seconds", minute, second);
-            } else {
-                sprintf(outputBuffer, "%.6lf second", second + usec);
-            }
-            return outputBuffer;
+    Timer :: Timer()
+    {
+        initTimer();
+    }
+
+    void Timer :: startTimer()
+    {
+        this->initTimer();
+        this->getTime(start_wtime);
+        this->getUtime(start_utime);
+        running = true;
+    }
+
+    void Timer :: stopTimer()
+    {
+        this->pauseTimer();
+        running = false;
+    }
+
+    void Timer :: pauseTimer()
+    {
+        this->getTime(end_wtime);
+        this->getUtime(end_utime);
+        running = false;
+        this->updateElapsedTime();
+    }
+
+    void Timer :: resumeTimer()
+    {
+        this->getTime(start_wtime);
+        this->getUtime(start_utime);
+        running = true;
+    }
+
+    void Timer :: initTimer()
+    {
+        elapsedWTime = elapsedWTime.zero();
+        elapsedUTime = elapsedUTime.zero();
+        running = false;
+    }
+
+    double Timer :: getUtime()
+    {
+        this->updateElapsedTime();
+        return elapsedUTime.count();
+    }
+
+    double Timer :: getWtime()
+    {
+        updateElapsedTime();
+        return elapsedWTime.count();
+    }
+
+    void Timer :: convert2HMS(int &nhrs, int &nmin, int &nsec, double tsec)
+    {
+        long int _nsec = ( long int ) tsec;
+        nhrs = 0;
+        nmin = 0;
+        if ( _nsec > 60 ) {
+            nmin = _nsec / 60;
+            _nsec %= 60;
         }
-    }
 
-    void Timer::start() {
-        if (!running_) {
-            running_ = true;
-            start_ = std::chrono::system_clock::now();
+        if ( nmin > 60 ) {
+            nhrs = nmin / 60;
+            nmin %= 60;
         }
+
+        nsec = _nsec;
     }
 
-    void Timer::pause() {
-        auto now = std::chrono::system_clock::now();
-        interval_ = now - start_;
-        duration_ += interval_;
-        running_ = false;
+    void Timer :: toString(char *buff)
+    {
+        std :: sprintf( buff, "ut: %f.3s, wt: %f.3s", getUtime(), getWtime() );
     }
 
-    void Timer::reset() {
-        running_ = true;
-        start_ = std::chrono::system_clock::now();
-        duration_ = std::chrono::duration<long, std::nano>::zero();
-    }
-
-    void Timer::update() {
-        if (running_) {
-            auto now = std::chrono::system_clock::now();
-            interval_ = now - start_;
-            duration_ += interval_;
-            start_ = now;
+    void Timer :: updateElapsedTime()
+    {
+        if ( running ) {
+            pauseTimer();
+            resumeTimer();
         }
+
+        elapsedWTime += end_wtime - start_wtime;
+        elapsedUTime += end_utime - start_utime;
+
+        start_utime = end_utime;
+        start_wtime = end_wtime;
     }
 
-    const char *Timer::getTime() {
-        std::chrono::system_clock::time_point now_ = std::chrono::system_clock::now();
-        std::time_t time_t_now_ = std::chrono::system_clock::to_time_t(now_);
-        return ctime(&time_t_now_);
+    double EngngModelTimer :: getUtime(EngngModelTimer :: EngngModelTimerType t)
+    {
+        return timers [ t ].getUtime();
     }
 
-    const char *Timer::getInterval() const {
-        return converToString(interval_);
+    double EngngModelTimer :: getWtime(EngngModelTimer :: EngngModelTimerType t)
+    {
+        return timers [ t ].getWtime();
     }
 
-    const char *Timer::getDuration() const {
-        return converToString(duration_);
+    void EngngModelTimer :: convert2HMS(int &nhrs, int &nmin, int &nsec, double tsec)
+    {
+        Timer :: convert2HMS(nhrs, nmin, nsec, tsec);
+    }
+
+    void EngngModelTimer :: toString(EngngModelTimer :: EngngModelTimerType t, char *buff)
+    {
+        return timers [ t ].toString(buff);
     }
 }
-

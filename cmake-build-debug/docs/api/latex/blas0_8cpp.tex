@@ -1,0 +1,797 @@
+\hypertarget{blas0_8cpp}{}\doxysubsection{blas0.\+cpp File Reference}
+\label{blas0_8cpp}\index{blas0.cpp@{blas0.cpp}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}sfem\+Math/sfem\+Blas/blas0.\+h\char`\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}{I\+N\+CX}}~5
+\item 
+\#define \mbox{\hyperlink{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}{I\+N\+CX}}~5
+\item 
+\#define \mbox{\hyperlink{blas0_8cpp_ac1c7bc76dbfd8378fc96541a6243afd1}{T\+I\+M\+E\+\_\+\+S\+I\+ZE}}~40
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+complex$<$ float $>$ \mbox{\hyperlink{blas0_8cpp_a549df083ecfe199944fd15fd67823838}{c4\+\_\+uniform\+\_\+01}} (int \&seed)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a6c4cf91e443760e01cfee734cec90c67}{c4mat\+\_\+print}} (int m, int n, complex$<$ float $>$ a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a789e345216e4aaa4b5502c43f88ee026}{c4mat\+\_\+print\+\_\+some}} (int m, int n, complex$<$ float $>$ a\mbox{[}$\,$\mbox{]}, int ilo, int jlo, int ihi, int jhi, string title)
+\item 
+complex$<$ float $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_adff5a491296930d80df9be58ad381d7c}{c4mat\+\_\+test}} (int n)
+\item 
+complex$<$ float $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_ae87c84f5129726f7de70a6a669106f88}{c4mat\+\_\+test\+\_\+inverse}} (int n)
+\item 
+complex$<$ float $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_ae46ca48b0ec7e974aebd17e167439b29}{c4mat\+\_\+uniform\+\_\+01\+\_\+new}} (int m, int n, int \&seed)
+\item 
+complex$<$ float $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_aa2b296955eaae0646e927ca80f918481}{c4vec\+\_\+uniform\+\_\+01\+\_\+new}} (int n, int \&seed)
+\item 
+complex$<$ double $>$ \mbox{\hyperlink{blas0_8cpp_ad0a58d76cc880df43e3886e70df22bde}{c8\+\_\+uniform\+\_\+01}} (int \&seed)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a2834393ce909f09b9de5e4aca1180f13}{c8mat\+\_\+print}} (int m, int n, complex$<$ double $>$ a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_ac32c511563eca1c44f1c7208601125b9}{c8mat\+\_\+print\+\_\+some}} (int m, int n, complex$<$ double $>$ a\mbox{[}$\,$\mbox{]}, int ilo, int jlo, int ihi, int jhi, string title)
+\item 
+complex$<$ double $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_aebaebd24b85a4d1fca3d702eff5cbcaa}{c8mat\+\_\+test}} (int n)
+\item 
+complex$<$ double $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_ac2d9049fc1f714a18af5a78db4a6ffa0}{c8mat\+\_\+test\+\_\+inverse}} (int n)
+\item 
+complex$<$ double $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_aab22e0b989c8646b95f4a5ea9cb7790f}{c8mat\+\_\+uniform\+\_\+01\+\_\+new}} (int m, int n, int \&seed)
+\item 
+complex$<$ double $>$ $\ast$ \mbox{\hyperlink{blas0_8cpp_af5dbf5516a5edc994c0a93360376dfaf}{c8vec\+\_\+uniform\+\_\+01\+\_\+new}} (int n, int \&seed)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_a67a91708a40933179d04accd50237f34}{cabs1}} (complex$<$ float $>$ z)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_af45ed53143b86beadf976910bc13a6a0}{cabs2}} (complex$<$ float $>$ z)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_abf41652d2fe4f94fb6d80a3a5b680f1f}{cmach}} (int job)
+\item 
+complex$<$ float $>$ \mbox{\hyperlink{blas0_8cpp_a5dc83883a005a9fd8f2c4c64006b0089}{csign1}} (complex$<$ float $>$ z1, complex$<$ float $>$ z2)
+\item 
+complex$<$ float $>$ \mbox{\hyperlink{blas0_8cpp_ad2bdee752b640086bea6280045d8b1cc}{csign2}} (complex$<$ float $>$ z1, complex$<$ float $>$ z2)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a3500802765b61fa0d3a59fc7fa3dcea8}{dmach}} (int job)
+\item 
+int \mbox{\hyperlink{blas0_8cpp_a36f800e4593bdd258feaeb43cf42adf7}{i4\+\_\+max}} (int i1, int i2)
+\item 
+int \mbox{\hyperlink{blas0_8cpp_ae73c30e1658d722ce9ff2e671db331ca}{i4\+\_\+min}} (int i1, int i2)
+\item 
+bool \mbox{\hyperlink{blas0_8cpp_ac5cbefbc15421cc0b08af80b41467229}{lsame}} (char ca, char cb)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_a5c1bb00b7d83fa1723180a27a5d252e8}{r4\+\_\+abs}} (float x)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_aafc842a582d283e98d1107defcd18eed}{r4\+\_\+max}} (float x, float y)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_a1c3a72c2caea149876f763b0a8b9f299}{r4\+\_\+sign}} (float x)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_af4a90f8bd4b0faff67786316bca03eaf}{r4\+\_\+uniform\+\_\+01}} (int \&seed)
+\item 
+float \mbox{\hyperlink{blas0_8cpp_a8fecae14ab5a483c41381ffe99a14943}{r4\+\_\+uniform\+\_\+ab}} (float a, float b, int \&seed)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_ab7ba574acd1d8d63d4c6eb44a453a4be}{r4mat\+\_\+print}} (int m, int n, float a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_ab8626c700445b2ab81ad2febac55fe67}{r4mat\+\_\+print\+\_\+some}} (int m, int n, float a\mbox{[}$\,$\mbox{]}, int ilo, int jlo, int ihi, int jhi, string title)
+\item 
+float $\ast$ \mbox{\hyperlink{blas0_8cpp_a784eb7a09649adda4e50acbb3869eb8d}{r4mat\+\_\+test}} (char trans, int lda, int m, int n)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_aaff809b552e4c1531e12594220b73673}{r4mat\+\_\+uniform\+\_\+01}} (int m, int n, int \&seed, float r\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a4d882deed7c9a20abe58ceef6c183bfb}{r4vec\+\_\+print}} (int n, float a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a764d529be849adbbb2865d6c886710dc}{r8\+\_\+abs}} (double x)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_add31fc483ea093dc4ed605b9a6b095ba}{r8\+\_\+max}} (double x, double y)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a1420dbaa964dd7d85f6f6536680c252e}{r8\+\_\+sign}} (double x)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a945ebb6e5a945a7b539750532e5e22f7}{r8\+\_\+uniform\+\_\+01}} (int \&seed)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a65f7f005b25ac0418f853c310acbc742}{r8\+\_\+uniform\+\_\+ab}} (double a, double b, int \&seed)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a40adf3fe9339d9173b4d7e9cad179622}{r8mat\+\_\+print}} (int m, int n, double a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_ad1cf18ec00aea8e4cce9a8c04d0f8f6d}{r8mat\+\_\+print\+\_\+some}} (int m, int n, double a\mbox{[}$\,$\mbox{]}, int ilo, int jlo, int ihi, int jhi, string title)
+\item 
+double $\ast$ \mbox{\hyperlink{blas0_8cpp_aad0710a1e87113bff60f3b9a16bd1654}{r8mat\+\_\+test}} (char trans, int lda, int m, int n)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_ae395d66252e7725f05fce8dd5e9c70af}{r8vec\+\_\+print}} (int n, double a\mbox{[}$\,$\mbox{]}, string title)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_aa7c3cb25f241dde90d82b347f5062348}{r8mat\+\_\+uniform\+\_\+01}} (int m, int n, int \&seed, double r\mbox{[}$\,$\mbox{]})
+\item 
+float \mbox{\hyperlink{blas0_8cpp_abe7e1970c80dcc4db54757347207377a}{smach}} (int job)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_a2219d86aef2195ff323e8349d92abe86}{timestamp}} ()
+\item 
+int \mbox{\hyperlink{blas0_8cpp_afd296453e9063b802d34f17caac93ae1}{triangle\+\_\+upper\+\_\+to\+\_\+i4}} (int i, int j)
+\item 
+void \mbox{\hyperlink{blas0_8cpp_afdf73f176c5d83d3c3caed341864cd85}{xerbla}} (string srname, int info)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a680dc6ea347fcf89f40cdc90a8add166}{zabs1}} (complex$<$ double $>$ z)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_a6aa5d59d4f88559afeeb9138afe053e5}{zabs2}} (complex$<$ double $>$ z)
+\item 
+double \mbox{\hyperlink{blas0_8cpp_af10952fecafec8d2120fb8c4216ff825}{zmach}} (int job)
+\item 
+complex$<$ double $>$ \mbox{\hyperlink{blas0_8cpp_a99bc1cae992b615c2ebecd6c74503b8e}{zsign1}} (complex$<$ double $>$ z1, complex$<$ double $>$ z2)
+\item 
+complex$<$ double $>$ \mbox{\hyperlink{blas0_8cpp_a00316aa709e506d79233ff10695c2565}{zsign2}} (complex$<$ double $>$ z1, complex$<$ double $>$ z2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}\label{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}} 
+\index{blas0.cpp@{blas0.cpp}!INCX@{INCX}}
+\index{INCX@{INCX}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{INCX}{INCX}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define I\+N\+CX~5}
+
+\mbox{\Hypertarget{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}\label{blas0_8cpp_a9e7f349969ece6e0a2c68f20b9ba2daa}} 
+\index{blas0.cpp@{blas0.cpp}!INCX@{INCX}}
+\index{INCX@{INCX}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{INCX}{INCX}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define I\+N\+CX~5}
+
+\mbox{\Hypertarget{blas0_8cpp_ac1c7bc76dbfd8378fc96541a6243afd1}\label{blas0_8cpp_ac1c7bc76dbfd8378fc96541a6243afd1}} 
+\index{blas0.cpp@{blas0.cpp}!TIME\_SIZE@{TIME\_SIZE}}
+\index{TIME\_SIZE@{TIME\_SIZE}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{TIME\_SIZE}{TIME\_SIZE}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+S\+I\+ZE~40}
+
+
+
+\doxysubsubsection{Function Documentation}
+\mbox{\Hypertarget{blas0_8cpp_a549df083ecfe199944fd15fd67823838}\label{blas0_8cpp_a549df083ecfe199944fd15fd67823838}} 
+\index{blas0.cpp@{blas0.cpp}!c4\_uniform\_01@{c4\_uniform\_01}}
+\index{c4\_uniform\_01@{c4\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4\_uniform\_01()}{c4\_uniform\_01()}}
+{\footnotesize\ttfamily complex$<$float$>$ c4\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a6c4cf91e443760e01cfee734cec90c67}\label{blas0_8cpp_a6c4cf91e443760e01cfee734cec90c67}} 
+\index{blas0.cpp@{blas0.cpp}!c4mat\_print@{c4mat\_print}}
+\index{c4mat\_print@{c4mat\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4mat\_print()}{c4mat\_print()}}
+{\footnotesize\ttfamily void c4mat\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{complex$<$ float $>$}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 86 of file blas0.\+cpp.
+
+
+
+References c4mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_a789e345216e4aaa4b5502c43f88ee026}\label{blas0_8cpp_a789e345216e4aaa4b5502c43f88ee026}} 
+\index{blas0.cpp@{blas0.cpp}!c4mat\_print\_some@{c4mat\_print\_some}}
+\index{c4mat\_print\_some@{c4mat\_print\_some}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4mat\_print\_some()}{c4mat\_print\_some()}}
+{\footnotesize\ttfamily void c4mat\+\_\+print\+\_\+some (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{complex$<$ float $>$}]{a\mbox{[}$\,$\mbox{]},  }\item[{int}]{ilo,  }\item[{int}]{jlo,  }\item[{int}]{ihi,  }\item[{int}]{jhi,  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 125 of file blas0.\+cpp.
+
+
+
+References i4\+\_\+max(), and i4\+\_\+min().
+
+
+
+Referenced by c4mat\+\_\+print().
+
+\mbox{\Hypertarget{blas0_8cpp_adff5a491296930d80df9be58ad381d7c}\label{blas0_8cpp_adff5a491296930d80df9be58ad381d7c}} 
+\index{blas0.cpp@{blas0.cpp}!c4mat\_test@{c4mat\_test}}
+\index{c4mat\_test@{c4mat\_test}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4mat\_test()}{c4mat\_test()}}
+{\footnotesize\ttfamily complex$<$float$>$$\ast$ c4mat\+\_\+test (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 230 of file blas0.\+cpp.
+
+
+
+Referenced by c4mat\+\_\+test\+\_\+inverse().
+
+\mbox{\Hypertarget{blas0_8cpp_ae87c84f5129726f7de70a6a669106f88}\label{blas0_8cpp_ae87c84f5129726f7de70a6a669106f88}} 
+\index{blas0.cpp@{blas0.cpp}!c4mat\_test\_inverse@{c4mat\_test\_inverse}}
+\index{c4mat\_test\_inverse@{c4mat\_test\_inverse}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4mat\_test\_inverse()}{c4mat\_test\_inverse()}}
+{\footnotesize\ttfamily complex$<$float$>$$\ast$ c4mat\+\_\+test\+\_\+inverse (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 279 of file blas0.\+cpp.
+
+
+
+References c4mat\+\_\+test().
+
+\mbox{\Hypertarget{blas0_8cpp_ae46ca48b0ec7e974aebd17e167439b29}\label{blas0_8cpp_ae46ca48b0ec7e974aebd17e167439b29}} 
+\index{blas0.cpp@{blas0.cpp}!c4mat\_uniform\_01\_new@{c4mat\_uniform\_01\_new}}
+\index{c4mat\_uniform\_01\_new@{c4mat\_uniform\_01\_new}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4mat\_uniform\_01\_new()}{c4mat\_uniform\_01\_new()}}
+{\footnotesize\ttfamily complex$<$float$>$$\ast$ c4mat\+\_\+uniform\+\_\+01\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 326 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_aa2b296955eaae0646e927ca80f918481}\label{blas0_8cpp_aa2b296955eaae0646e927ca80f918481}} 
+\index{blas0.cpp@{blas0.cpp}!c4vec\_uniform\_01\_new@{c4vec\_uniform\_01\_new}}
+\index{c4vec\_uniform\_01\_new@{c4vec\_uniform\_01\_new}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c4vec\_uniform\_01\_new()}{c4vec\_uniform\_01\_new()}}
+{\footnotesize\ttfamily complex$<$float$>$$\ast$ c4vec\+\_\+uniform\+\_\+01\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 445 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_ad0a58d76cc880df43e3886e70df22bde}\label{blas0_8cpp_ad0a58d76cc880df43e3886e70df22bde}} 
+\index{blas0.cpp@{blas0.cpp}!c8\_uniform\_01@{c8\_uniform\_01}}
+\index{c8\_uniform\_01@{c8\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8\_uniform\_01()}{c8\_uniform\_01()}}
+{\footnotesize\ttfamily complex$<$double$>$ c8\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 561 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a2834393ce909f09b9de5e4aca1180f13}\label{blas0_8cpp_a2834393ce909f09b9de5e4aca1180f13}} 
+\index{blas0.cpp@{blas0.cpp}!c8mat\_print@{c8mat\_print}}
+\index{c8mat\_print@{c8mat\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8mat\_print()}{c8mat\_print()}}
+{\footnotesize\ttfamily void c8mat\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{complex$<$ double $>$}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 630 of file blas0.\+cpp.
+
+
+
+References c8mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_ac32c511563eca1c44f1c7208601125b9}\label{blas0_8cpp_ac32c511563eca1c44f1c7208601125b9}} 
+\index{blas0.cpp@{blas0.cpp}!c8mat\_print\_some@{c8mat\_print\_some}}
+\index{c8mat\_print\_some@{c8mat\_print\_some}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8mat\_print\_some()}{c8mat\_print\_some()}}
+{\footnotesize\ttfamily void c8mat\+\_\+print\+\_\+some (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{complex$<$ double $>$}]{a\mbox{[}$\,$\mbox{]},  }\item[{int}]{ilo,  }\item[{int}]{jlo,  }\item[{int}]{ihi,  }\item[{int}]{jhi,  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 669 of file blas0.\+cpp.
+
+
+
+References i4\+\_\+max(), and i4\+\_\+min().
+
+
+
+Referenced by c8mat\+\_\+print().
+
+\mbox{\Hypertarget{blas0_8cpp_aebaebd24b85a4d1fca3d702eff5cbcaa}\label{blas0_8cpp_aebaebd24b85a4d1fca3d702eff5cbcaa}} 
+\index{blas0.cpp@{blas0.cpp}!c8mat\_test@{c8mat\_test}}
+\index{c8mat\_test@{c8mat\_test}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8mat\_test()}{c8mat\_test()}}
+{\footnotesize\ttfamily complex$<$double$>$$\ast$ c8mat\+\_\+test (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 774 of file blas0.\+cpp.
+
+
+
+Referenced by c8mat\+\_\+test\+\_\+inverse().
+
+\mbox{\Hypertarget{blas0_8cpp_ac2d9049fc1f714a18af5a78db4a6ffa0}\label{blas0_8cpp_ac2d9049fc1f714a18af5a78db4a6ffa0}} 
+\index{blas0.cpp@{blas0.cpp}!c8mat\_test\_inverse@{c8mat\_test\_inverse}}
+\index{c8mat\_test\_inverse@{c8mat\_test\_inverse}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8mat\_test\_inverse()}{c8mat\_test\_inverse()}}
+{\footnotesize\ttfamily complex$<$double$>$$\ast$ c8mat\+\_\+test\+\_\+inverse (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 823 of file blas0.\+cpp.
+
+
+
+References c8mat\+\_\+test().
+
+\mbox{\Hypertarget{blas0_8cpp_aab22e0b989c8646b95f4a5ea9cb7790f}\label{blas0_8cpp_aab22e0b989c8646b95f4a5ea9cb7790f}} 
+\index{blas0.cpp@{blas0.cpp}!c8mat\_uniform\_01\_new@{c8mat\_uniform\_01\_new}}
+\index{c8mat\_uniform\_01\_new@{c8mat\_uniform\_01\_new}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8mat\_uniform\_01\_new()}{c8mat\_uniform\_01\_new()}}
+{\footnotesize\ttfamily complex$<$double$>$$\ast$ c8mat\+\_\+uniform\+\_\+01\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 870 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_af5dbf5516a5edc994c0a93360376dfaf}\label{blas0_8cpp_af5dbf5516a5edc994c0a93360376dfaf}} 
+\index{blas0.cpp@{blas0.cpp}!c8vec\_uniform\_01\_new@{c8vec\_uniform\_01\_new}}
+\index{c8vec\_uniform\_01\_new@{c8vec\_uniform\_01\_new}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{c8vec\_uniform\_01\_new()}{c8vec\_uniform\_01\_new()}}
+{\footnotesize\ttfamily complex$<$double$>$$\ast$ c8vec\+\_\+uniform\+\_\+01\+\_\+new (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 953 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a67a91708a40933179d04accd50237f34}\label{blas0_8cpp_a67a91708a40933179d04accd50237f34}} 
+\index{blas0.cpp@{blas0.cpp}!cabs1@{cabs1}}
+\index{cabs1@{cabs1}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{cabs1()}{cabs1()}}
+{\footnotesize\ttfamily float cabs1 (\begin{DoxyParamCaption}\item[{complex$<$ float $>$}]{z }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1033 of file blas0.\+cpp.
+
+
+
+References r4\+\_\+abs().
+
+
+
+Referenced by csign1().
+
+\mbox{\Hypertarget{blas0_8cpp_af45ed53143b86beadf976910bc13a6a0}\label{blas0_8cpp_af45ed53143b86beadf976910bc13a6a0}} 
+\index{blas0.cpp@{blas0.cpp}!cabs2@{cabs2}}
+\index{cabs2@{cabs2}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{cabs2()}{cabs2()}}
+{\footnotesize\ttfamily float cabs2 (\begin{DoxyParamCaption}\item[{complex$<$ float $>$}]{z }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1090 of file blas0.\+cpp.
+
+
+
+Referenced by csign2().
+
+\mbox{\Hypertarget{blas0_8cpp_abf41652d2fe4f94fb6d80a3a5b680f1f}\label{blas0_8cpp_abf41652d2fe4f94fb6d80a3a5b680f1f}} 
+\index{blas0.cpp@{blas0.cpp}!cmach@{cmach}}
+\index{cmach@{cmach}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{cmach()}{cmach()}}
+{\footnotesize\ttfamily float cmach (\begin{DoxyParamCaption}\item[{int}]{job }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1148 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a5dc83883a005a9fd8f2c4c64006b0089}\label{blas0_8cpp_a5dc83883a005a9fd8f2c4c64006b0089}} 
+\index{blas0.cpp@{blas0.cpp}!csign1@{csign1}}
+\index{csign1@{csign1}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{csign1()}{csign1()}}
+{\footnotesize\ttfamily complex$<$float$>$ csign1 (\begin{DoxyParamCaption}\item[{complex$<$ float $>$}]{z1,  }\item[{complex$<$ float $>$}]{z2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1294 of file blas0.\+cpp.
+
+
+
+References cabs1().
+
+\mbox{\Hypertarget{blas0_8cpp_ad2bdee752b640086bea6280045d8b1cc}\label{blas0_8cpp_ad2bdee752b640086bea6280045d8b1cc}} 
+\index{blas0.cpp@{blas0.cpp}!csign2@{csign2}}
+\index{csign2@{csign2}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{csign2()}{csign2()}}
+{\footnotesize\ttfamily complex$<$float$>$ csign2 (\begin{DoxyParamCaption}\item[{complex$<$ float $>$}]{z1,  }\item[{complex$<$ float $>$}]{z2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1343 of file blas0.\+cpp.
+
+
+
+References cabs2().
+
+\mbox{\Hypertarget{blas0_8cpp_a3500802765b61fa0d3a59fc7fa3dcea8}\label{blas0_8cpp_a3500802765b61fa0d3a59fc7fa3dcea8}} 
+\index{blas0.cpp@{blas0.cpp}!dmach@{dmach}}
+\index{dmach@{dmach}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{dmach()}{dmach()}}
+{\footnotesize\ttfamily double dmach (\begin{DoxyParamCaption}\item[{int}]{job }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1392 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a36f800e4593bdd258feaeb43cf42adf7}\label{blas0_8cpp_a36f800e4593bdd258feaeb43cf42adf7}} 
+\index{blas0.cpp@{blas0.cpp}!i4\_max@{i4\_max}}
+\index{i4\_max@{i4\_max}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{i4\_max()}{i4\_max()}}
+{\footnotesize\ttfamily int i4\+\_\+max (\begin{DoxyParamCaption}\item[{int}]{i1,  }\item[{int}]{i2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1516 of file blas0.\+cpp.
+
+
+
+Referenced by c4mat\+\_\+print\+\_\+some(), c8mat\+\_\+print\+\_\+some(), and r4mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_ae73c30e1658d722ce9ff2e671db331ca}\label{blas0_8cpp_ae73c30e1658d722ce9ff2e671db331ca}} 
+\index{blas0.cpp@{blas0.cpp}!i4\_min@{i4\_min}}
+\index{i4\_min@{i4\_min}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{i4\_min()}{i4\_min()}}
+{\footnotesize\ttfamily int i4\+\_\+min (\begin{DoxyParamCaption}\item[{int}]{i1,  }\item[{int}]{i2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1557 of file blas0.\+cpp.
+
+
+
+Referenced by c4mat\+\_\+print\+\_\+some(), c8mat\+\_\+print\+\_\+some(), and r4mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_ac5cbefbc15421cc0b08af80b41467229}\label{blas0_8cpp_ac5cbefbc15421cc0b08af80b41467229}} 
+\index{blas0.cpp@{blas0.cpp}!lsame@{lsame}}
+\index{lsame@{lsame}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{lsame()}{lsame()}}
+{\footnotesize\ttfamily bool lsame (\begin{DoxyParamCaption}\item[{char}]{ca,  }\item[{char}]{cb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1598 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a5c1bb00b7d83fa1723180a27a5d252e8}\label{blas0_8cpp_a5c1bb00b7d83fa1723180a27a5d252e8}} 
+\index{blas0.cpp@{blas0.cpp}!r4\_abs@{r4\_abs}}
+\index{r4\_abs@{r4\_abs}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4\_abs()}{r4\_abs()}}
+{\footnotesize\ttfamily float r4\+\_\+abs (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1664 of file blas0.\+cpp.
+
+
+
+Referenced by cabs1().
+
+\mbox{\Hypertarget{blas0_8cpp_aafc842a582d283e98d1107defcd18eed}\label{blas0_8cpp_aafc842a582d283e98d1107defcd18eed}} 
+\index{blas0.cpp@{blas0.cpp}!r4\_max@{r4\_max}}
+\index{r4\_max@{r4\_max}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4\_max()}{r4\_max()}}
+{\footnotesize\ttfamily float r4\+\_\+max (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1705 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a1c3a72c2caea149876f763b0a8b9f299}\label{blas0_8cpp_a1c3a72c2caea149876f763b0a8b9f299}} 
+\index{blas0.cpp@{blas0.cpp}!r4\_sign@{r4\_sign}}
+\index{r4\_sign@{r4\_sign}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4\_sign()}{r4\_sign()}}
+{\footnotesize\ttfamily float r4\+\_\+sign (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1746 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_af4a90f8bd4b0faff67786316bca03eaf}\label{blas0_8cpp_af4a90f8bd4b0faff67786316bca03eaf}} 
+\index{blas0.cpp@{blas0.cpp}!r4\_uniform\_01@{r4\_uniform\_01}}
+\index{r4\_uniform\_01@{r4\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4\_uniform\_01()}{r4\_uniform\_01()}}
+{\footnotesize\ttfamily float r4\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1787 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a8fecae14ab5a483c41381ffe99a14943}\label{blas0_8cpp_a8fecae14ab5a483c41381ffe99a14943}} 
+\index{blas0.cpp@{blas0.cpp}!r4\_uniform\_ab@{r4\_uniform\_ab}}
+\index{r4\_uniform\_ab@{r4\_uniform\_ab}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4\_uniform\_ab()}{r4\_uniform\_ab()}}
+{\footnotesize\ttfamily float r4\+\_\+uniform\+\_\+ab (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1888 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_ab7ba574acd1d8d63d4c6eb44a453a4be}\label{blas0_8cpp_ab7ba574acd1d8d63d4c6eb44a453a4be}} 
+\index{blas0.cpp@{blas0.cpp}!r4mat\_print@{r4mat\_print}}
+\index{r4mat\_print@{r4mat\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4mat\_print()}{r4mat\_print()}}
+{\footnotesize\ttfamily void r4mat\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{float}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1952 of file blas0.\+cpp.
+
+
+
+References r4mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_ab8626c700445b2ab81ad2febac55fe67}\label{blas0_8cpp_ab8626c700445b2ab81ad2febac55fe67}} 
+\index{blas0.cpp@{blas0.cpp}!r4mat\_print\_some@{r4mat\_print\_some}}
+\index{r4mat\_print\_some@{r4mat\_print\_some}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4mat\_print\_some()}{r4mat\_print\_some()}}
+{\footnotesize\ttfamily void r4mat\+\_\+print\+\_\+some (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{float}]{a\mbox{[}$\,$\mbox{]},  }\item[{int}]{ilo,  }\item[{int}]{jlo,  }\item[{int}]{ihi,  }\item[{int}]{jhi,  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1996 of file blas0.\+cpp.
+
+
+
+References i4\+\_\+max(), i4\+\_\+min(), and I\+N\+CX.
+
+
+
+Referenced by r4mat\+\_\+print().
+
+\mbox{\Hypertarget{blas0_8cpp_a784eb7a09649adda4e50acbb3869eb8d}\label{blas0_8cpp_a784eb7a09649adda4e50acbb3869eb8d}} 
+\index{blas0.cpp@{blas0.cpp}!r4mat\_test@{r4mat\_test}}
+\index{r4mat\_test@{r4mat\_test}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4mat\_test()}{r4mat\_test()}}
+{\footnotesize\ttfamily float$\ast$ r4mat\+\_\+test (\begin{DoxyParamCaption}\item[{char}]{trans,  }\item[{int}]{lda,  }\item[{int}]{m,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2104 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_aaff809b552e4c1531e12594220b73673}\label{blas0_8cpp_aaff809b552e4c1531e12594220b73673}} 
+\index{blas0.cpp@{blas0.cpp}!r4mat\_uniform\_01@{r4mat\_uniform\_01}}
+\index{r4mat\_uniform\_01@{r4mat\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4mat\_uniform\_01()}{r4mat\_uniform\_01()}}
+{\footnotesize\ttfamily void r4mat\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int \&}]{seed,  }\item[{float}]{r\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2173 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a4d882deed7c9a20abe58ceef6c183bfb}\label{blas0_8cpp_a4d882deed7c9a20abe58ceef6c183bfb}} 
+\index{blas0.cpp@{blas0.cpp}!r4vec\_print@{r4vec\_print}}
+\index{r4vec\_print@{r4vec\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r4vec\_print()}{r4vec\_print()}}
+{\footnotesize\ttfamily void r4vec\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{float}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2278 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a764d529be849adbbb2865d6c886710dc}\label{blas0_8cpp_a764d529be849adbbb2865d6c886710dc}} 
+\index{blas0.cpp@{blas0.cpp}!r8\_abs@{r8\_abs}}
+\index{r8\_abs@{r8\_abs}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8\_abs()}{r8\_abs()}}
+{\footnotesize\ttfamily double r8\+\_\+abs (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2326 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_add31fc483ea093dc4ed605b9a6b095ba}\label{blas0_8cpp_add31fc483ea093dc4ed605b9a6b095ba}} 
+\index{blas0.cpp@{blas0.cpp}!r8\_max@{r8\_max}}
+\index{r8\_max@{r8\_max}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8\_max()}{r8\_max()}}
+{\footnotesize\ttfamily double r8\+\_\+max (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2367 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a1420dbaa964dd7d85f6f6536680c252e}\label{blas0_8cpp_a1420dbaa964dd7d85f6f6536680c252e}} 
+\index{blas0.cpp@{blas0.cpp}!r8\_sign@{r8\_sign}}
+\index{r8\_sign@{r8\_sign}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8\_sign()}{r8\_sign()}}
+{\footnotesize\ttfamily double r8\+\_\+sign (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2408 of file blas0.\+cpp.
+
+
+
+Referenced by drotg().
+
+\mbox{\Hypertarget{blas0_8cpp_a945ebb6e5a945a7b539750532e5e22f7}\label{blas0_8cpp_a945ebb6e5a945a7b539750532e5e22f7}} 
+\index{blas0.cpp@{blas0.cpp}!r8\_uniform\_01@{r8\_uniform\_01}}
+\index{r8\_uniform\_01@{r8\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8\_uniform\_01()}{r8\_uniform\_01()}}
+{\footnotesize\ttfamily double r8\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2449 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a65f7f005b25ac0418f853c310acbc742}\label{blas0_8cpp_a65f7f005b25ac0418f853c310acbc742}} 
+\index{blas0.cpp@{blas0.cpp}!r8\_uniform\_ab@{r8\_uniform\_ab}}
+\index{r8\_uniform\_ab@{r8\_uniform\_ab}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8\_uniform\_ab()}{r8\_uniform\_ab()}}
+{\footnotesize\ttfamily double r8\+\_\+uniform\+\_\+ab (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{int \&}]{seed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2552 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a40adf3fe9339d9173b4d7e9cad179622}\label{blas0_8cpp_a40adf3fe9339d9173b4d7e9cad179622}} 
+\index{blas0.cpp@{blas0.cpp}!r8mat\_print@{r8mat\_print}}
+\index{r8mat\_print@{r8mat\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8mat\_print()}{r8mat\_print()}}
+{\footnotesize\ttfamily void r8mat\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2616 of file blas0.\+cpp.
+
+
+
+References r8mat\+\_\+print\+\_\+some().
+
+\mbox{\Hypertarget{blas0_8cpp_ad1cf18ec00aea8e4cce9a8c04d0f8f6d}\label{blas0_8cpp_ad1cf18ec00aea8e4cce9a8c04d0f8f6d}} 
+\index{blas0.cpp@{blas0.cpp}!r8mat\_print\_some@{r8mat\_print\_some}}
+\index{r8mat\_print\_some@{r8mat\_print\_some}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8mat\_print\_some()}{r8mat\_print\_some()}}
+{\footnotesize\ttfamily void r8mat\+\_\+print\+\_\+some (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{int}]{ilo,  }\item[{int}]{jlo,  }\item[{int}]{ihi,  }\item[{int}]{jhi,  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2660 of file blas0.\+cpp.
+
+
+
+References I\+N\+CX.
+
+
+
+Referenced by r8mat\+\_\+print().
+
+\mbox{\Hypertarget{blas0_8cpp_aad0710a1e87113bff60f3b9a16bd1654}\label{blas0_8cpp_aad0710a1e87113bff60f3b9a16bd1654}} 
+\index{blas0.cpp@{blas0.cpp}!r8mat\_test@{r8mat\_test}}
+\index{r8mat\_test@{r8mat\_test}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8mat\_test()}{r8mat\_test()}}
+{\footnotesize\ttfamily double$\ast$ r8mat\+\_\+test (\begin{DoxyParamCaption}\item[{char}]{trans,  }\item[{int}]{lda,  }\item[{int}]{m,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2787 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_aa7c3cb25f241dde90d82b347f5062348}\label{blas0_8cpp_aa7c3cb25f241dde90d82b347f5062348}} 
+\index{blas0.cpp@{blas0.cpp}!r8mat\_uniform\_01@{r8mat\_uniform\_01}}
+\index{r8mat\_uniform\_01@{r8mat\_uniform\_01}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8mat\_uniform\_01()}{r8mat\_uniform\_01()}}
+{\footnotesize\ttfamily void r8mat\+\_\+uniform\+\_\+01 (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int \&}]{seed,  }\item[{double}]{r\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2904 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_ae395d66252e7725f05fce8dd5e9c70af}\label{blas0_8cpp_ae395d66252e7725f05fce8dd5e9c70af}} 
+\index{blas0.cpp@{blas0.cpp}!r8vec\_print@{r8vec\_print}}
+\index{r8vec\_print@{r8vec\_print}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{r8vec\_print()}{r8vec\_print()}}
+{\footnotesize\ttfamily void r8vec\+\_\+print (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{string}]{title }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2856 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_abe7e1970c80dcc4db54757347207377a}\label{blas0_8cpp_abe7e1970c80dcc4db54757347207377a}} 
+\index{blas0.cpp@{blas0.cpp}!smach@{smach}}
+\index{smach@{smach}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{smach()}{smach()}}
+{\footnotesize\ttfamily float smach (\begin{DoxyParamCaption}\item[{int}]{job }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3009 of file blas0.\+cpp.
+
+
+
+References xerbla().
+
+\mbox{\Hypertarget{blas0_8cpp_a2219d86aef2195ff323e8349d92abe86}\label{blas0_8cpp_a2219d86aef2195ff323e8349d92abe86}} 
+\index{blas0.cpp@{blas0.cpp}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{timestamp()}{timestamp()}}
+{\footnotesize\ttfamily void timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3128 of file blas0.\+cpp.
+
+
+
+References T\+I\+M\+E\+\_\+\+S\+I\+ZE.
+
+\mbox{\Hypertarget{blas0_8cpp_afd296453e9063b802d34f17caac93ae1}\label{blas0_8cpp_afd296453e9063b802d34f17caac93ae1}} 
+\index{blas0.cpp@{blas0.cpp}!triangle\_upper\_to\_i4@{triangle\_upper\_to\_i4}}
+\index{triangle\_upper\_to\_i4@{triangle\_upper\_to\_i4}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{triangle\_upper\_to\_i4()}{triangle\_upper\_to\_i4()}}
+{\footnotesize\ttfamily int triangle\+\_\+upper\+\_\+to\+\_\+i4 (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3175 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_afdf73f176c5d83d3c3caed341864cd85}\label{blas0_8cpp_afdf73f176c5d83d3c3caed341864cd85}} 
+\index{blas0.cpp@{blas0.cpp}!xerbla@{xerbla}}
+\index{xerbla@{xerbla}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{xerbla()}{xerbla()}}
+{\footnotesize\ttfamily void xerbla (\begin{DoxyParamCaption}\item[{string}]{srname,  }\item[{int}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3283 of file blas0.\+cpp.
+
+
+
+Referenced by smach().
+
+\mbox{\Hypertarget{blas0_8cpp_a680dc6ea347fcf89f40cdc90a8add166}\label{blas0_8cpp_a680dc6ea347fcf89f40cdc90a8add166}} 
+\index{blas0.cpp@{blas0.cpp}!zabs1@{zabs1}}
+\index{zabs1@{zabs1}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{zabs1()}{zabs1()}}
+{\footnotesize\ttfamily double zabs1 (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{z }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3335 of file blas0.\+cpp.
+
+
+
+Referenced by zsign1().
+
+\mbox{\Hypertarget{blas0_8cpp_a6aa5d59d4f88559afeeb9138afe053e5}\label{blas0_8cpp_a6aa5d59d4f88559afeeb9138afe053e5}} 
+\index{blas0.cpp@{blas0.cpp}!zabs2@{zabs2}}
+\index{zabs2@{zabs2}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{zabs2()}{zabs2()}}
+{\footnotesize\ttfamily double zabs2 (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{z }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3390 of file blas0.\+cpp.
+
+
+
+Referenced by zsign2().
+
+\mbox{\Hypertarget{blas0_8cpp_af10952fecafec8d2120fb8c4216ff825}\label{blas0_8cpp_af10952fecafec8d2120fb8c4216ff825}} 
+\index{blas0.cpp@{blas0.cpp}!zmach@{zmach}}
+\index{zmach@{zmach}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{zmach()}{zmach()}}
+{\footnotesize\ttfamily double zmach (\begin{DoxyParamCaption}\item[{int}]{job }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3449 of file blas0.\+cpp.
+
+\mbox{\Hypertarget{blas0_8cpp_a99bc1cae992b615c2ebecd6c74503b8e}\label{blas0_8cpp_a99bc1cae992b615c2ebecd6c74503b8e}} 
+\index{blas0.cpp@{blas0.cpp}!zsign1@{zsign1}}
+\index{zsign1@{zsign1}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{zsign1()}{zsign1()}}
+{\footnotesize\ttfamily complex$<$double$>$ zsign1 (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{z1,  }\item[{complex$<$ double $>$}]{z2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3593 of file blas0.\+cpp.
+
+
+
+References zabs1().
+
+\mbox{\Hypertarget{blas0_8cpp_a00316aa709e506d79233ff10695c2565}\label{blas0_8cpp_a00316aa709e506d79233ff10695c2565}} 
+\index{blas0.cpp@{blas0.cpp}!zsign2@{zsign2}}
+\index{zsign2@{zsign2}!blas0.cpp@{blas0.cpp}}
+\doxyparagraph{\texorpdfstring{zsign2()}{zsign2()}}
+{\footnotesize\ttfamily complex$<$double$>$ zsign2 (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{z1,  }\item[{complex$<$ double $>$}]{z2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3642 of file blas0.\+cpp.
+
+
+
+References zabs2().
+

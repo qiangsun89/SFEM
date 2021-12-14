@@ -1,0 +1,1 @@
+/usr/local/bin/clang++  -Wall -Wall -fPIC -O0 -Wsuggest-override -DDEBUG -g   CMakeFiles/sfem.dir/src/main/SFEM.cpp.o  -o sfem  -Wl,-rpath,/home/qiang/software/SFEM/cmake-build-debug: libsfem.so /usr/lib/x86_64-linux-gnu/libdl.so 

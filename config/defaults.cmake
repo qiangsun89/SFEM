@@ -84,6 +84,7 @@ option (USE_sfemMath "Enable sfemMath usage" ON)
 #option (USE_sfemMath "Enable sfemMath usage" OFF)
 # add clang definition.
 OPTION(USE_CLANG "use clang building the project" ON)
+option (USE_IGA "Enable isogeometric analysis usage" ON)
 # Optional overrides for autodetected MPIEXEC and MPIEXEC_NUMPROC_FLAG
 # set(SFEM_MPIEXEC "mpirun" CACHE STRING "Command for running MPI tests")
 # set(SFEM_MPIEXEC_NP "-np" CACHE STRING
